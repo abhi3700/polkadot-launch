@@ -6,22 +6,12 @@
 			{
 				"name": "alice",
 				"wsPort": 9944,
-				"port": 30444
+				"port": 30333
 			},
 			{
 				"name": "bob",
-				"wsPort": 9955,
-				"port": 30555
-			},
-			{
-				"name": "charlie",
-				"wsPort": 9966,
-				"port": 30666
-			},
-			{
-				"name": "dave",
-				"wsPort": 9977,
-				"port": 30777
+				"wsPort": 9945,
+				"port": 30334
 			}
 		],
 		"genesis": {
@@ -39,9 +29,10 @@
 	},
 	"parachains": [
 		{
-			"bin": "./bin/polkadot-collator",
-			"id": "200",
+			"bin": "./bin/parachain-collator",
+			"id": "2000",
 			"balance": "1000000000000000000000",
+			"chain": "",
 			"nodes": [
 				{
 					"wsPort": 9988,
@@ -50,34 +41,13 @@
 					"flags": ["--", "--execution=wasm"]
 				}
 			]
-		},
-		{
-			"bin": "./bin/polkadot-collator",
-			"id": "300",
-			"balance": "1000000000000000000000",
-			"nodes": [
-				{
-					"wsPort": 9999,
-					"port": 31300,
-					"name": "alice",
-					"flags": ["--", "--execution=wasm"]
-				}
-			]
 		}
 	],
-	"simpleParachains": [
-		{
-			"bin": "./bin/adder-collator",
-			"id": "400",
-			"port": "31400",
-			"name": "alice",
-			"balance": "1000000000000000000000"
-		}
-	],
+	"simpleParachains": [],
 	"hrmpChannels": [
 		{
-			"sender": 200,
-			"recipient": 300,
+			"sender": 2000,
+			"recipient": 2001,
 			"maxCapacity": 8,
 			"maxMessageSize": 512
 		}
